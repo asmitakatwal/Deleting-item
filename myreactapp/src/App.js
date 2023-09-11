@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [arr, setArr] = useState(['ram', 'shyam', 'hari', 'geeta'])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+
+      <h1>{arr.map((item, id) => {
+        return (
+          <li>{item}</li>
+        )
+      })}</h1>
+
+<button onClick={() =>{ 
+  const tempArr=[...arr]
+  tempArr.pop()
+setArr(tempArr)}}>Delete</button>
+
     </div>
   );
-}
 
+}
 export default App;
